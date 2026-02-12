@@ -1,0 +1,31 @@
+//===================================================
+//
+// ワールドマトリックスの計算処理 [calcu_world_matrix.h]
+// Author:YUTO YOSHIDA
+//
+//===================================================
+
+//***************************************************
+// 多重インクルード防止
+//***************************************************
+#ifndef _CALCU_WORLD_MATRIX_H_
+#define _CALCU_WORLD_MATRIX_H_
+
+//***************************************************
+// インクルードファイル
+//***************************************************
+#include "system_base.h"
+
+//***************************************************
+// ワールドマトリックスの計算処理
+//***************************************************
+struct CalcuWorldMatrix : SystemBase
+{
+	CalcuWorldMatrix() = default;
+	~CalcuWorldMatrix() = default;
+
+	void Update(entt::registry& registry) override;
+private:
+	void ApplyParentTransfrom(entt::registry& registry, entt::entity entity);
+};
+#endif

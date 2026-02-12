@@ -1,0 +1,16 @@
+{
+    "TEXTURE_INFO": [
+        {
+            "file_path": "data/TEXTURE/sky000.jpg"
+        },
+        {
+            "file_path": "data/TEXTURE/field.jpg"
+        },
+        {
+            "file_path": "data/TEXTURE/effect000.jpg"
+        },
+        {
+            "file_path": "data/TEXTURE/field.png"
+        }
+    ]
+}

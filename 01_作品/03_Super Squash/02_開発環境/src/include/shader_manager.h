@@ -1,0 +1,42 @@
+//===================================================
+//
+// シェーダーの初期化を行うs [shader_manager.h]
+// Author:YUTO YOSHIDA
+//
+//===================================================
+
+//***************************************************
+// 多重インクルード防止
+//***************************************************
+#ifndef _SHADER_MANAGER_H_
+#define _SHADER_MANAGER_H_
+
+//***************************************************
+// 前方宣言
+//***************************************************
+class CShader;	// シェーダーのクラスの取得
+
+//***************************************************
+// シェーダーのマネージャークラスの定義
+//***************************************************
+class CShaderManager
+{
+public:
+	// シェーダーの種類
+	typedef enum
+	{
+		TYPE_OUTLINE = 0,	// アウトラインシェーダー
+		TYPE_MAX
+	}TYPE;
+
+	CShaderManager();
+	~CShaderManager();
+
+	static std::unique_ptr<CShaderManager> Create(void);
+
+	HRESULT Init(void);
+	CShader* Get(const TYPE type) { return m_apShader[type].get(); }
+private:
+	std::array<std::unique_ptr<CShader>, TYPE_MAX> m_apShader; // シェーダークラスへのポインタ
+};
+#endif
